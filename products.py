@@ -12,3 +12,6 @@ while True:
 print(products)
 
 products[0][0] #第一个‘0’指的是products清单中的第0格， 第二个‘0’指的是products 清单里的第0格的第0格
+
+for p in products:
+	print(p[0], '的价格是', p[1])

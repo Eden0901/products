@@ -1,15 +1,20 @@
-#读取档案
+#检查档案在不在
+import os #operating system 作业系统
 products = []
-with open('products.csv', 'r') as f:
-	for line in f:
-		if '商品,价格' in line:
-			continue #只能在回圈里写；功能就是跳到下一回
-		name, price = line.strip().split(',') #line 是字串 可以用逗点来切割
-		products.append([name, price])
-print(products)
+if os.path.isfile('products.csv'):
+	print('yeah! found it!')
+	with open('products.csv', 'r') as f:
+		for line in f:
+			if '商品,价格' in line:
+				continue #只能在回圈里写；功能就是跳到下一回
+			name, price = line.strip().split(',') #line 是字串 可以用逗点来切割
+			products.append([name, price])
+	print(products)
 
+else:
+	print('file not found')
+	
 #让使用者输入
-products = []
 while True:
 	name = input('请输入商品名称:')
 	if name == 'q':
